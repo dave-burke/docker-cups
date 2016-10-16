@@ -14,3 +14,5 @@ RUN apt-get install --quiet --assume-yes --allow-downgrades --allow-remove-essen
 
 COPY cupsd.conf /etc/cups/cupsd.conf
 
+CMD ["/usr/sbin/cupsd", "-f"]
+
