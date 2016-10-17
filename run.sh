@@ -13,6 +13,5 @@ if [ -n "${cid}" ]; then
 fi
 
 echo "Running container..."
-#docker run --name ${name} --detach --restart=always --privileged -v /dev/bus/usb:/dev/bus/usb --publish 631:631 ${name}
-docker run -it --rm --privileged -v /dev/bus/usb:/dev/bus/usb --publish 631:631 ${name} sh
+docker run --name ${name} --detach --restart=always --privileged --volume /dev/bus/usb:/dev/bus/usb --publish 631:631 ${name}
 
