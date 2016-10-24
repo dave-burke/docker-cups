@@ -6,11 +6,9 @@ RUN apt-get --quiet update && apt-get --quiet --assume-yes --allow-downgrades --
 # Install cups
 RUN apt-get install --quiet --assume-yes --allow-downgrades --allow-remove-essential --allow-change-held-packages cups printer-driver-hpcups
 
-VOLUME /etc/cups/
+COPY cupsd.conf /etc/cups/cupsd.conf
 
 EXPOSE 631
-
-COPY cupsd.conf /etc/cups/cupsd.conf
 
 CMD ["/usr/sbin/cupsd", "-f"]
 
